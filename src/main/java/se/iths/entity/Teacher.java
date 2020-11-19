@@ -22,7 +22,8 @@ public class Teacher {
 //    @OneToMany(mappedBy = "subject", cascade = CascadeType.ALL, orphanRemoval = true)
 
  //    private Set<Student> students = new HashSet<Student>();
-//    private Set<Subject> subjects = new HashSet<Subject>();
+    @OneToMany(mappedBy = "teacher", cascade = CascadeType.PERSIST)
+    private Set<Subject> subjects = new HashSet<Subject>();
 
 
     public Teacher(@NotEmpty String firstname, @NotEmpty String lastname, @NotEmpty String email, String phonenumber) {
@@ -34,6 +35,7 @@ public class Teacher {
 
     public Teacher() {
     }
+
 
 
     public Long getId() {
