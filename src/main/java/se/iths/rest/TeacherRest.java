@@ -45,6 +45,11 @@ public class TeacherRest {
 //    public List<Teacher> getStudentByLastName(@PathParam("lastname") String lastName) {
 //        return verifier.list_teachersCheck(teacherService.findTeacherByLastName(lastName), "No student registered with last name " + lastName);
 //    }
+    @Path("getTeacherAndSubject/{firstname}")
+    @GET
+    public List<Teacher> getTeacherAndSubject(@PathParam("firstname") String firstname){
+        return teacherService.findTeacherAndSubject(firstname);
+    }
 
     @Path("getall")
     @GET

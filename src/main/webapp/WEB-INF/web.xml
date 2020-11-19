@@ -5,7 +5,7 @@
 <data-source>
   <name>java:app/MyApp/MyDS</name>
   <class-name>org.h2.jdbcx.JdbcDataSource</class-name>
-  <url>jdbc:h2:mem:school</url>
+  <url>jdbc:h2:mem:school-managment</url>
   <user>sa</user>
   <password>sa</password>
 </data-source>
