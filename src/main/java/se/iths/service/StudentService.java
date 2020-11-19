@@ -30,12 +30,12 @@ public class StudentService {
     }
 
     public List<Student> getAllStudents() {
-        List<Student> s = entityManager.createQuery("SELECT s from Student s", Student.class).getResultList();
-        List<Subject> sub = entityManager.createQuery("SELECT s from Subject s", Subject.class).getResultList();
-        List joinList = join
-
-        return
-        //return entityManager.createQuery("SELECT s from Student s", Student.class).getResultList();
+//        List<Student> s = entityManager.createQuery("SELECT s from Student s", Student.class).getResultList();
+//        List<Subject> sub = entityManager.createQuery("SELECT s from Subject s", Subject.class).getResultList();
+//        List joinList = join
+//
+//        return
+        return entityManager.createQuery("SELECT s from Student s", Student.class).getResultList();
     }
 
     public List<Student> findStudentByLastName(String LName) {
