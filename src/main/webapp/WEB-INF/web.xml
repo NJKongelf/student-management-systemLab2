@@ -5,7 +5,16 @@
 <data-source>
   <name>java:app/MyApp/MyDS</name>
   <class-name>org.h2.jdbcx.JdbcDataSource</class-name>
-  <url>jdbc:h2:mem:loppish2</url>
+  <url>jdbc:h2:mem:school-managment</url>
+  <user>sa</user>
+  <password>sa</password>
 </data-source>
-
+  <servlet>
+    <servlet-name>h2-console</servlet-name>
+    <servlet-class>org.h2.server.web.WebServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>h2-console</servlet-name>
+    <url-pattern>/h2/*</url-pattern>
+  </servlet-mapping>
 </web-app>

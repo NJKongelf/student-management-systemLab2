@@ -32,6 +32,10 @@ public class TeacherService {
             return entityManager.createQuery("SELECT t from Teacher t", Teacher.class).getResultList();
 
         }
+        public List<Teacher> findTeacherAndSubject(String teacherName){
+        return entityManager.createQuery("SELECT t.firstname, s.name FROM Teacher t INNER JOIN Subject s WHERE t.firstname = :teacher", Teacher.class).setParameter("teacher", teacherName).getResultList();
+        }
+
 
 //        public List<Teacher> findStudentByLastName(String LName) {
 //            return entityManager.createQuery("SELECT t from Teacher t where t.lastname like :lastname", Teacher.class).setParameter("lastname", LName).getResultList();

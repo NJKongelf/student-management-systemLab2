@@ -13,11 +13,11 @@ public class Subject {
     @NotNull
     private String name;
 
-    @OneToOne
-    @JoinColumn
+
+    @ManyToOne(fetch = FetchType.LAZY)
     private Teacher teacher;
 
-    @ManyToMany(mappedBy = "subjects",cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "subjects",cascade = CascadeType.PERSIST)
     private Set<Student> students = new HashSet<>();
 
 
@@ -64,4 +64,6 @@ public class Subject {
     public void setStudents(Set<Student> students) {
         this.students = students;
     }
+
+
 }

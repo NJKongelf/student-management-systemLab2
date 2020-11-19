@@ -1,6 +1,7 @@
 package se.iths.rest;
 
 import se.iths.entity.Student;
+import se.iths.entity.Teacher;
 import se.iths.rest.verifiers.StudentVerifier;
 import se.iths.service.StudentService;
 
@@ -40,7 +41,11 @@ public class StudentRest {
     public Student getStudent(@PathParam("id") Long id) {
         return verifier.StudentExist(studentService.findStudentById(id), id);
     }
-
+    @Path("getStudentAndSubject/{firstname}")
+    @GET
+    public List<Student> getStudentAndSubject(@PathParam("firstname") String firstname){
+        return studentService.findNameAndSubject(firstname);
+    }
     @Path("searchByLastName/{lastname}")
     @GET
     public List<Student> getStudentByLastName(@PathParam("lastname") String lastName) {
