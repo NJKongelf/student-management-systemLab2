@@ -28,7 +28,7 @@ public class SubjectService {
     }
 
     public List<Subject> getAllSubjects() {
-    return entityManager.createQuery("SELECT s from Subject s INNER JOIN FETCH s.students", Subject.class).getResultList();
+    return entityManager.createQuery("SELECT DISTINCT s from Subject s INNER JOIN FETCH s.students", Subject.class).getResultList();
 
     }
 

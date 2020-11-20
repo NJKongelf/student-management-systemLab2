@@ -23,8 +23,9 @@ public class StudentDataGenerator {
     @PostConstruct
     public void generateData() {
         Teacher teacher = new Teacher("Bill", "Gates", "Microsoft@google.com", "555-1234");
+        Teacher teacher1 = new Teacher("Martin","Blomberg", "martin@javamaster.se", "555-7698");
         Subject subject = new Subject("Java",teacher);
-        Subject subject2 = new Subject("C#",teacher);
+        Subject subject2 = new Subject("C",teacher);
         Student[] students = new Student[6];
 
         students[0]=new Student("Luis", "Gutierrez", "luis@google.com", "555-2343");
@@ -45,6 +46,7 @@ public class StudentDataGenerator {
 
 
        entityManager.persist(teacher);
+       entityManager.persist(teacher1);
 
         entityManager.persist(students[0]);
         entityManager.persist(students[1]);

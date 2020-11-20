@@ -10,6 +10,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Set;
 
 @Path("teacher")
 @Consumes(MediaType.APPLICATION_JSON)
@@ -50,11 +51,17 @@ public class TeacherRest {
     public List<Teacher> getTeacherAndSubject(@PathParam("firstname") String firstname){
         return teacherService.findTeacherAndSubject(firstname);
     }
+    @Path("getStudentBySubjectAndTeacher/{subject}/{teacher}")
+    @GET
+    public Set<Student> getStudentBySubjectAndTeacher(@PathParam("subject") String subject, @PathParam("teacher") String teacher){
+        return teacherService.getSpecifiedStudentsPerSubjectandTeacher(subject,teacher);
+    }
 
     @Path("getall")
     @GET
     public List<Teacher> getAllItems() {
-        return verifier.list_teachersCheck(teacherService.getAllTeachers(), "No teachers registered");
+     //   return verifier.list_teachersCheck(teacherService.getAllTeachers(), "No teachers registered");
+        return teacherService.getAllTeachers();
     }
 
     @Path("deleteById/{id}")

@@ -35,14 +35,15 @@ public class Student {
 
     public Student() {
     }
-   /*public Set<Subject> getSubjects() {
+    /*
+   public Set<Subject> getSubjects() {
         return subjects;
     }
 
-    public void setSubjects(Set<Subject> subjects) {
-        this.subjects = subjects;
-    }
-*/
+        public void setSubjects(Set<Subject> subjects) {
+            this.subjects = subjects;
+        }
+    */
     public Long getId() {
         return id;
     }

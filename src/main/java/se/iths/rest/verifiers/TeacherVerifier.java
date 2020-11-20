@@ -19,8 +19,8 @@ public class TeacherVerifier {
             badformatInput();
     }
 
-    public List<Teacher> list_teachersCheck(List<Teacher> teacherlist, String message) {
-        List<Teacher> teacherList = teacherlist;
+    public List<Teacher> list_teachersCheck(List<Teacher> teacherList, String message) {
+       // List<Teacher> teacherList = teacherlist;
         if (teacherList.size() > 0)
             return teacherList;
         else
