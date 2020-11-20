@@ -35,6 +35,7 @@ public class StudentDataGenerator {
         students[5]=new Student("Daniel", "Van Rankin", "daniel@google.com", "555-1086");
 
         students[0].addSubject(subject);
+        students[0].addSubject(subject2);   //
         students[1].addSubject(subject2);
 /*        students[1].addSubject(subject);
         students[2].addSubject(subject);

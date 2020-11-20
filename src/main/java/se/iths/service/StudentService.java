@@ -42,8 +42,12 @@ public class StudentService {
         return entityManager.createQuery("SELECT s from Student s where s.lastname like :lastname", Student.class).setParameter("lastname", LName).getResultList();
 
     }
-    public List<Student> findNameAndSubject(String fName){
-        return entityManager.createQuery("SELECT student.firstname, subject.name, teacher.firstname FROM Student student INNER JOIN Subject subject INNER JOIN Teacher teacher WHERE student.firstname = :firstName", Student.class).setParameter("firstName", fName).getResultList();
+//    public List<Student> findNameAndSubject(String fName){
+//        return entityManager.createQuery("SELECT student.firstname, subject.name, teacher.firstname FROM Student student INNER JOIN Subject subject INNER JOIN Teacher teacher WHERE student.firstname = :firstName", Student.class).setParameter("firstName", fName).getResultList();
+//    }
+
+    public List<Student> findNameAndSubject(){
+        return entityManager.createQuery("SELECT s FROM Student s INNER JOIN FETCH s.subjects" , Student.class).getResultList();
     }
 
     public void removeStudent(long id) {

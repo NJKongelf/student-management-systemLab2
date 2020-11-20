@@ -41,11 +41,16 @@ public class StudentRest {
     public Student getStudent(@PathParam("id") Long id) {
         return verifier.StudentExist(studentService.findStudentById(id), id);
     }
-    @Path("getStudentAndSubject/{firstname}")
+//    @Path("getStudentAndSubject/{firstname}")
+//    @GET
+//    public List<Student> getStudentAndSubject(@PathParam("firstname") String firstname){
+//        return studentService.findNameAndSubject(firstname);
+//    }
+    @Path("getStudentAndSubject")
     @GET
-    public List<Student> getStudentAndSubject(@PathParam("firstname") String firstname){
-        return studentService.findNameAndSubject(firstname);
-    }
+    public List<Student> getStudentAndSubject(){
+    return studentService.findNameAndSubject();
+}
     @Path("searchByLastName/{lastname}")
     @GET
     public List<Student> getStudentByLastName(@PathParam("lastname") String lastName) {

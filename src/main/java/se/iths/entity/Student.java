@@ -35,8 +35,6 @@ public class Student {
 
     public Student() {
     }
-
-
    /*public Set<Subject> getSubjects() {
         return subjects;
     }
