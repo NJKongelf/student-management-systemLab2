@@ -1,5 +1,6 @@
 package se.iths.rest;
 
+import se.iths.entity.Student;
 import se.iths.entity.Subject;
 import se.iths.service.SubjectService;
 
@@ -18,13 +19,24 @@ public class SubjectRest {
 
     @Path("new")
     @POST
-    public Response createSubject(Subject subject){
-      return Response.ok(subjectService.createSubject(subject)).build();
+    public Response createSubject(Subject subject) {
+        return Response.ok(subjectService.createSubject(subject)).build();
     }
 
     @Path("getall")
     @GET
-    public List<Subject> getallSubjects(){
+    public List<Subject> getallSubjects() {
         return subjectService.getAllSubjects();
+    }
+
+    @Path("Update")
+    @PUT
+    public Response updateSubject(Subject subject) {
+        return Response.ok(subjectService.updateTodo(subject)).build();
+    }
+    @Path("searchById/{id}")
+    @GET
+    public Subject getStudent(@PathParam("id") Long id) {
+        return subjectService.findSubjectById(id);
     }
 }
