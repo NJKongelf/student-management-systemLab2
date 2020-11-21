@@ -8,6 +8,7 @@ import se.iths.service.TeacherService;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
+import java.util.Set;
 
 public class TeacherVerifier {
     public BadFormatInputException badformatInput() {
@@ -20,7 +21,6 @@ public class TeacherVerifier {
     }
 
     public List<Teacher> list_teachersCheck(List<Teacher> teacherList, String message) {
-       // List<Teacher> teacherList = teacherlist;
         if (teacherList.size() > 0)
             return teacherList;
         else
@@ -45,4 +45,5 @@ public class TeacherVerifier {
             throw new StudentNotFoundException("Not teacher found with id " + id);
         }
     }
+
 }

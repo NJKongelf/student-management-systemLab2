@@ -31,12 +31,13 @@ public class TeacherService {
             return entityManager.find(Teacher.class, id);
         }
 
+
         public List<Teacher> getAllTeachers() {
             return entityManager.createQuery("SELECT t from Teacher t", Teacher.class).getResultList();
 
         }
         public List<Teacher> findTeacherAndSubject(String teacherName){
-        return entityManager.createQuery("SELECT t.firstname, s.name FROM Teacher t INNER JOIN Subject s WHERE t.firstname = :teacher", Teacher.class).setParameter("teacher", teacherName).getResultList();
+            return entityManager.createQuery("SELECT t.firstname, s.name FROM Teacher t INNER JOIN Subject s WHERE t.firstname = :teacher", Teacher.class).setParameter("teacher", teacherName).getResultList();
         }
         public Set<Student> getSpecifiedStudentsPerSubjectandTeacher(String subject, String teacher){
         Subject givenSubject = (Subject) entityManager

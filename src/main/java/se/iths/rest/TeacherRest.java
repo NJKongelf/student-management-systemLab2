@@ -2,6 +2,7 @@ package se.iths.rest;
 
 import se.iths.entity.Student;
 import se.iths.entity.Teacher;
+import se.iths.rest.exceptions.StudentNotFoundException;
 import se.iths.rest.verifiers.TeacherVerifier;
 import se.iths.service.TeacherService;
 
@@ -49,12 +50,21 @@ public class TeacherRest {
     @Path("getTeacherAndSubject/{firstname}")
     @GET
     public List<Teacher> getTeacherAndSubject(@PathParam("firstname") String firstname){
+    // return   verifier.list_teachersCheck(teacherService.findTeacherAndSubject(firstname),"Teacher not found");
+        if (teacherService.findTeacherAndSubject(firstname).size() > 0 )
         return teacherService.findTeacherAndSubject(firstname);
+        else {
+            throw new StudentNotFoundException("Teacher not found");
+        }
     }
     @Path("getStudentBySubjectAndTeacher/{subject}/{teacher}")
     @GET
     public Set<Student> getStudentBySubjectAndTeacher(@PathParam("subject") String subject, @PathParam("teacher") String teacher){
+     //   if(teacherService.getSpecifiedStudentsPerSubjectandTeacher(subject,teacher).size() > 0)
         return teacherService.getSpecifiedStudentsPerSubjectandTeacher(subject,teacher);
+//        else{                                                                                     //split on two verifier methods that check if teacher and subject exists by their name
+//            throw new StudentNotFoundException("Subject and teacher not related");
+//        }
     }
 
     @Path("getall")
