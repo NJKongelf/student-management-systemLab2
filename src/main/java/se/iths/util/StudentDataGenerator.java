@@ -44,9 +44,8 @@ public class StudentDataGenerator {
         students[4].addSubject(subject2);
         students[5].addSubject(subject2);*/
 
-
-       entityManager.persist(teacher);
-       entityManager.persist(teacher1);
+        entityManager.persist(teacher);
+         entityManager.persist(teacher1);
 
         entityManager.persist(students[0]);
         entityManager.persist(students[1]);

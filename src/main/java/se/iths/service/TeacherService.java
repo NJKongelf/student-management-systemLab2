@@ -48,7 +48,6 @@ public class TeacherService {
 
         Set<Student> foundStudents = givenSubject.getStudents();
         return foundStudents;
-
         }
 
         public boolean foundTeachertByName(String tName) {

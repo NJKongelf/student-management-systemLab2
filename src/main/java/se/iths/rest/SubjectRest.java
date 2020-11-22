@@ -29,7 +29,7 @@ public class SubjectRest {
         return subjectService.getAllSubjects();
     }
 
-    @Path("Update")
+    @Path("update")
     @PUT
     public Response updateSubject(Subject subject) {
         return Response.ok(subjectService.updateTodo(subject)).build();
