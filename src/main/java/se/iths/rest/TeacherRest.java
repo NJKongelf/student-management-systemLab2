@@ -20,6 +20,7 @@ import java.util.Set;
 public class TeacherRest {
     @Inject
     TeacherService teacherService;
+    @Inject
     TeacherVerifier verifier;
 
     @Path("new")
@@ -50,28 +51,22 @@ public class TeacherRest {
     @Path("getTeacherAndSubject/{firstname}")
     @GET
     public List<Teacher> getTeacherAndSubject(@PathParam("firstname") String firstname){
-    // return   verifier.list_teachersCheck(teacherService.findTeacherAndSubject(firstname),"Teacher not found");
-        if (teacherService.findTeacherAndSubject(firstname).size() > 0 )
-        return teacherService.findTeacherAndSubject(firstname);
-        else {
-            throw new StudentNotFoundException("Teacher not found");
-        }
+     return   verifier.list_teachersCheck(teacherService.findTeacherAndSubject(firstname),"Teacher not found or teacher has not assaigned subjects");
     }
     @Path("getStudentBySubjectAndTeacher/{subject}/{teacher}")
     @GET
     public Set<Student> getStudentBySubjectAndTeacher(@PathParam("subject") String subject, @PathParam("teacher") String teacher){
-     //   if(teacherService.getSpecifiedStudentsPerSubjectandTeacher(subject,teacher).size() > 0)
+        if(verifier.verifyThatTeacherAndSubjectExists(teacherService.foundTeachertByName(teacher),teacherService.foundSubjectByName(subject)))
         return teacherService.getSpecifiedStudentsPerSubjectandTeacher(subject,teacher);
-//        else{                                                                                     //split on two verifier methods that check if teacher and subject exists by their name
-//            throw new StudentNotFoundException("Subject and teacher not related");
-//        }
+        else{
+            throw new StudentNotFoundException("One or more parameters match no result");
+            }
     }
 
     @Path("getall")
     @GET
     public List<Teacher> getAllItems() {
-     //   return verifier.list_teachersCheck(teacherService.getAllTeachers(), "No teachers registered");
-        return teacherService.getAllTeachers();
+       return verifier.list_teachersCheck(teacherService.getAllTeachers(), "No teachers registered");
     }
 
     @Path("deleteById/{id}")

@@ -45,6 +45,7 @@ public class StudentService {
     }
 
 
+
     public void removeStudent(long id) {
         Student object = entityManager.find(Student.class, id);
         entityManager.remove(object);
