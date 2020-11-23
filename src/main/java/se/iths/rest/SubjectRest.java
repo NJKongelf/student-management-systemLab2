@@ -57,5 +57,10 @@ public class SubjectRest {
             throw new StudentNotFoundException("Not found matches to given subject. Make sure you spell subject's name right and that subject is registered");
         }
     }
+    @Path("deleteById/{id}")
+    @DELETE
+    public Response deleteSSubject(@PathParam("id") Long id) {
+        return verifier.SubjectExist(subjectService.findSubjectById(id), subjectService);
+    }
 
 }
