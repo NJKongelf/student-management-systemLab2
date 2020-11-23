@@ -2,9 +2,11 @@ package se.iths.rest;
 
 import se.iths.entity.Student;
 import se.iths.entity.Subject;
+import se.iths.rest.exceptions.StudentNotFoundException;
 import se.iths.service.SubjectService;
 
 import javax.inject.Inject;
+import javax.persistence.NoResultException;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -44,7 +46,11 @@ public class SubjectRest {
     @Path("getStudentsBySubjectName/{name}")
     @GET
     public Set<Student> getStudentsPerSubject(@PathParam("name") String name){
-        return subjectService.findStudentsBySubject(name);
+        try{
+        return subjectService.findStudentsBySubject(name);}
+        catch(NoResultException e){
+            throw new StudentNotFoundException("Not found matches to given subject. Make sure you spell subject's name right and that subject is registered");
+        }
     }
 
 }

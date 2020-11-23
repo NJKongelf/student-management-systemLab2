@@ -59,7 +59,7 @@ public class TeacherRest {
         if(verifier.verifyThatTeacherAndSubjectExists(teacherService.foundTeachertByName(teacher),teacherService.foundSubjectByName(subject)))
         return teacherService.getSpecifiedStudentsPerSubjectandTeacher(subject,teacher);
         else{
-            throw new StudentNotFoundException("One or more parameters match no result");
+            throw new StudentNotFoundException("One or more parameters match no result. Make sure you spell both subject's name and teacher's first name right, as well as both exists in registry");
             }
     }
 
