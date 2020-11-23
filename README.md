@@ -12,10 +12,6 @@ started to act as it should.
 
 # Endpoints
 
-
-## [Teacher](#Teacher)
-## [Subject](#Subject)
-
 # Student
 # GET
 |Method|Description|URL|
@@ -173,3 +169,119 @@ Student with ID 3 removed from registry
 ```
 
 # Teacher
+# GET
+|Method|Description|URL|
+|---|---|--|
+|GET|Get all students from registry|http://localhost:8080/student-management-system/api/v1/teacher/getall|
+
+|Response Body Exemple|
+|---|
+```ruby
+  [
+  {
+    "email": "Microsoft@google.com",
+    "firstname": "Bill",
+    "id": 1,
+    "lastname": "Gates",
+    "phonenumber": "555-1234"
+  },
+  {
+    "email": "martin@javamaster.se",
+    "firstname": "Martin",
+    "id": 2,
+    "lastname": "Blomberg",
+    "phonenumber": "555-7698"
+  }
+]
+```
+|Method|Description|URL|
+|---|---|--|
+|GET|Get student with given ID|http://localhost:8080/student-management-system/api/v1/student/searchById/{id}|
+
+|Response Body Example||
+|---|---|
+|Example URL| http://localhost:8080/student-management-system/api/v1/student/searchById/1|
+
+```ruby
+{
+  "email": "Microsoft@google.com",
+  "firstname": "Bill",
+  "id": 1,
+  "lastname": "Gates",
+  "phonenumber": "555-1234"
+}
+ ```
+ |Method|Description|URL|
+|---|---|--|
+|GET|Get student with given last name|http://localhost:8080/student-management-system/api/v1/teacher/getTeacherAndSubject/{firstname}|
+
+|Response Body Example||
+|---|---|
+|Example URL| http://localhost:8080/student-management-system/api/v1/student/getTeacherAndSubject/Bill|
+ 
+```ruby
+[
+  "Java",
+  "C"
+]
+ ```
+
+# POST
+|Method|Description|URL|
+|---|---|--|
+|POST|Create a new student record in registry|http://localhost:8080/student-management-system/api/v1/student/new|
+
+|Request Body Example|
+|---|
+```ruby
+{
+  "email": "example@iths.se",
+  "firstname": "Ronald",
+  "lastname": "McDonald",
+  "phonenumber": "555-2249"
+}
+
+```
+|Response Body Example|
+|---|
+```ruby
+{
+  "email": "example@iths.se",
+  "firstname": "Ronald",
+  "id": 7,
+  "lastname": "McDonald",
+  "phonenumber": "555-2249"
+}
+
+```
+
+# PUT
+|Method|Description|URL|
+|---|---|--|
+|PUT|Update an existing student record in registry|http://localhost:8080/student-management-system/api/v1/student/update|
+
+|Request Body Example and Response Body Example|
+|---|
+```ruby
+{
+  "email": "rob@google.com",
+  "firstname": "Robbie",
+  "id": 5,
+  "lastname": "Sam",
+  "phonenumber": "555-3639"
+}
+
+```
+
+# DELETE
+|Method|Description|URL|
+|---|---|--|
+|DELETE|Remove an existing student with given ID from registry|http://localhost:8080/student-management-system/api/v1/student/deleteById/{id}|
+
+|Response Body Example||
+|---|---|
+|Example URL| http://localhost:8080/student-management-system/api/v1/student/deleteById/3|
+
+```ruby
+Student with ID 3 removed from registry
+```
