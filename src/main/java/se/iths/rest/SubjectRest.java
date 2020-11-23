@@ -3,6 +3,7 @@ package se.iths.rest;
 import se.iths.entity.Student;
 import se.iths.entity.Subject;
 import se.iths.rest.exceptions.StudentNotFoundException;
+import se.iths.rest.verifiers.SubjectVerifier;
 import se.iths.service.SubjectService;
 
 import javax.inject.Inject;
@@ -19,28 +20,32 @@ import java.util.Set;
 public class SubjectRest {
     @Inject
     SubjectService subjectService;
+    @Inject
+    SubjectVerifier verifier;
 
     @Path("new")
     @POST
     public Response createSubject(Subject subject) {
+        verifier.verifySubject(subject);
         return Response.ok(subjectService.createSubject(subject)).build();
     }
 
     @Path("getall")
     @GET
     public List<Subject> getallSubjects() {
-        return subjectService.getAllSubjects();
+        return verifier.list_subjectsCheck(subjectService.getAllSubjects(),"No subjects registered");
     }
 
     @Path("update")
     @PUT
     public Response updateSubject(Subject subject) {
+        verifier.verifySubject(subject);
         return Response.ok(subjectService.updateTodo(subject)).build();
     }
     @Path("searchById/{id}")
     @GET
     public Subject getSubject(@PathParam("id") Long id) {
-        return subjectService.findSubjectById(id);
+        return verifier.SubjectExist(subjectService.findSubjectById(id),id);
     }
 
     @Path("getStudentsBySubjectName/{name}")
