@@ -13,8 +13,9 @@ started to act as it should.
 # Endpoints
 
 ## [Teacher](#teacher-1)
+## Subject (#subject-1)
 
-# Student
+## Student
 # GET
 |Method|Description|URL|
 |---|---|--|
@@ -313,3 +314,4 @@ Student with ID 3 removed from registry
 ```ruby
 Teacher with ID 10 removed from registry
 ```
+# Subject
