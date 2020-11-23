@@ -227,7 +227,7 @@ Student with ID 3 removed from registry
  ```
  |Method|Description|URL|
 |---|---|--|
-|GET|Get teacher and subjects with given first name|http://localhost:8080/student-management-system/api/v1/teacher/getStudentBySubjectAndTeacher/{subject}/{teacher}|
+|GET|Get students with given subject and teachers first name |http://localhost:8080/student-management-system/api/v1/teacher/getStudentBySubjectAndTeacher/{subject}/{teacher}|
 
 |Response Body Example||
 |---|---|
@@ -255,7 +255,7 @@ Student with ID 3 removed from registry
 # POST
 |Method|Description|URL|
 |---|---|--|
-|POST|Create a new student record in registry|http://localhost:8080/student-management-system/api/v1/student/new|
+|POST|Create a new teacher record in registry|http://localhost:8080/student-management-system/api/v1/teacher/new|
 
 |Request Body Example|
 |---|
@@ -274,7 +274,7 @@ Student with ID 3 removed from registry
 {
   "email": "example@iths.se",
   "firstname": "Ronald",
-  "id": 7,
+  "id": 10,
   "lastname": "McDonald",
   "phonenumber": "555-2249"
 }
@@ -284,7 +284,7 @@ Student with ID 3 removed from registry
 # PUT
 |Method|Description|URL|
 |---|---|--|
-|PUT|Update an existing student record in registry|http://localhost:8080/student-management-system/api/v1/student/update|
+|PUT|Update an existing teacher record in registry|http://localhost:8080/student-management-system/api/v1/teacher/update|
 
 |Request Body Example and Response Body Example|
 |---|
@@ -292,7 +292,7 @@ Student with ID 3 removed from registry
 {
   "email": "rob@google.com",
   "firstname": "Robbie",
-  "id": 5,
+  "id": 10,
   "lastname": "Sam",
   "phonenumber": "555-3639"
 }
@@ -302,12 +302,12 @@ Student with ID 3 removed from registry
 # DELETE
 |Method|Description|URL|
 |---|---|--|
-|DELETE|Remove an existing student with given ID from registry|http://localhost:8080/student-management-system/api/v1/student/deleteById/{id}|
+|DELETE|Remove an existing teacher with given ID from registry|http://localhost:8080/student-management-system/api/v1/teacher/deleteById/{id}|
 
 |Response Body Example||
 |---|---|
-|Example URL| http://localhost:8080/student-management-system/api/v1/student/deleteById/3|
+|Example URL| http://localhost:8080/student-management-system/api/v1/teacher/deleteById/10|
 
 ```ruby
-Student with ID 3 removed from registry
+Teacher with ID 10 removed from registry
 ```
