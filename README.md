@@ -12,6 +12,8 @@ started to act as it should.
 
 # Endpoints
 
+## [Teacher](#teacher-1)
+
 # Student
 # GET
 |Method|Description|URL|
