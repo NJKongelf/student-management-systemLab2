@@ -13,7 +13,7 @@ started to act as it should.
 # Endpoints
 
 ## [Teacher](#teacher-1)
-## Subject (#subject-1)
+## [Subject](#subject-1)
 
 ## Student
 # GET
