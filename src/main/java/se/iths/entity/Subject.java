@@ -14,7 +14,7 @@ public class Subject {
     private String name;
 
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne (fetch = FetchType.LAZY, cascade = CascadeType.ALL)//(fetch = FetchType.LAZY)
     private Teacher teacher;
 
     @ManyToMany(mappedBy = "subjects",cascade = CascadeType.PERSIST)

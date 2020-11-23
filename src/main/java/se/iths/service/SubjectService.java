@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.Set;
 
 @Transactional
 public class SubjectService {
@@ -28,13 +29,19 @@ public class SubjectService {
     }
 
     public List<Subject> getAllSubjects() {
-    return entityManager.createQuery("SELECT DISTINCT s from Subject s INNER JOIN FETCH s.students", Subject.class).getResultList();
-
+    //return entityManager.createQuery("SELECT DISTINCT s from Subject s INNER JOIN FETCH s.students", Subject.class).getResultList();
+     //  return entityManager.createQuery("SELECT s.id, s.name AS \'name\', s.teacher AS \'teacher\' FROM Subject s",Subject.class).getResultList();
+        return entityManager.createQuery("SELECT s FROM Subject s", Subject.class).getResultList();
     }
 
     public List<Subject> findSubjectByName(String LName) {
         return entityManager.createQuery("SELECT s from Subject s where s.name like :name", Subject.class).setParameter("name", LName).getResultList();
 
+    }
+    public Set<Student> findStudentsBySubject(String subject){
+        Subject s =  entityManager.createQuery("SELECT s FROM Subject s  WHERE s.name = :sub", Subject.class).setParameter("sub",subject).getSingleResult();
+        Long id = s.getId();
+        return entityManager.find(Subject.class, id).getStudents();
     }
 
     public void removeSubject(long id) {
