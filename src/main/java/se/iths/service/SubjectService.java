@@ -29,9 +29,9 @@ public class SubjectService {
     }
 
     public List<Subject> getAllSubjects() {
-    //return entityManager.createQuery("SELECT DISTINCT s from Subject s INNER JOIN FETCH s.students", Subject.class).getResultList();
+        return entityManager.createQuery("SELECT DISTINCT s from Subject s INNER JOIN FETCH s.students", Subject.class).getResultList();
      //  return entityManager.createQuery("SELECT s.id, s.name AS \'name\', s.teacher AS \'teacher\' FROM Subject s",Subject.class).getResultList();
-        return entityManager.createQuery("SELECT s FROM Subject s", Subject.class).getResultList();
+      //  return entityManager.createQuery("SELECT s FROM Subject s", Subject.class).getResultList();
     }
 
     public List<Subject> findSubjectByName(String LName) {

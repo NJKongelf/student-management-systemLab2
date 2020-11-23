@@ -24,8 +24,13 @@ public class StudentDataGenerator {
     public void generateData() {
         Teacher teacher = new Teacher("Bill", "Gates", "Microsoft@google.com", "555-1234");
         Teacher teacher1 = new Teacher("Martin","Blomberg", "martin@javamaster.se", "555-7698");
-        Subject subject = new Subject("Java",teacher);
-        Subject subject2 = new Subject("C",teacher);
+
+        Subject subject = new Subject("Java",teacher1);
+        Subject subject1 = new Subject("SpringBoot", teacher1);
+        Subject subject2 = new Subject("C-Sharp",teacher);
+        Subject subject3 = new Subject("Azure",teacher);
+
+
         Student[] students = new Student[6];
 
         students[0]=new Student("Luis", "Gutierrez", "luis@google.com", "555-2343");
@@ -36,24 +41,28 @@ public class StudentDataGenerator {
         students[5]=new Student("Daniel", "Van Rankin", "daniel@google.com", "555-1086");
 
         students[0].addSubject(subject);
-        students[0].addSubject(subject2);   //
+        students[0].addSubject(subject1);
         students[1].addSubject(subject2);
-/*        students[1].addSubject(subject);
+        students[1].addSubject(subject3);
         students[2].addSubject(subject);
+        students[2].addSubject(subject1);
         students[3].addSubject(subject2);
-        students[4].addSubject(subject2);
-        students[5].addSubject(subject2);*/
+        students[3].addSubject(subject3);
+        students[4].addSubject(subject);
+        students[4].addSubject(subject3);
+        students[5].addSubject(subject2);
+        students[5].addSubject(subject3);
+
 
         entityManager.persist(teacher);
-         entityManager.persist(teacher1);
+        entityManager.persist(teacher1);
 
         entityManager.persist(students[0]);
         entityManager.persist(students[1]);
         entityManager.persist(students[3]);
         entityManager.persist(students[4]);
         entityManager.persist(students[5]);
-      //  entityManager.persist(subject);
-        //entityManager.persist(subject2);
+
 
     }
 
