@@ -172,4 +172,4 @@ started to act as it should.
 Student with ID 3 removed from registry
 ```
 
-#Teacher
+# Teacher
