@@ -171,4 +171,5 @@ started to act as it should.
 ```ruby
 Student with ID 3 removed from registry
 ```
+
 #Teacher
