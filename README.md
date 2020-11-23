@@ -172,7 +172,7 @@ Student with ID 3 removed from registry
 # GET
 |Method|Description|URL|
 |---|---|--|
-|GET|Get all students from registry|http://localhost:8080/student-management-system/api/v1/teacher/getall|
+|GET|Get all teachers from registry|http://localhost:8080/student-management-system/api/v1/teacher/getall|
 
 |Response Body Exemple|
 |---|
@@ -196,11 +196,11 @@ Student with ID 3 removed from registry
 ```
 |Method|Description|URL|
 |---|---|--|
-|GET|Get student with given ID|http://localhost:8080/student-management-system/api/v1/student/searchById/{id}|
+|GET|Get teacher with given ID|http://localhost:8080/student-management-system/api/v1/teacher/searchById/{id}|
 
 |Response Body Example||
 |---|---|
-|Example URL| http://localhost:8080/student-management-system/api/v1/student/searchById/1|
+|Example URL| http://localhost:8080/student-management-system/api/v1/teacher/searchById/1|
 
 ```ruby
 {
@@ -213,16 +213,42 @@ Student with ID 3 removed from registry
  ```
  |Method|Description|URL|
 |---|---|--|
-|GET|Get student with given last name|http://localhost:8080/student-management-system/api/v1/teacher/getTeacherAndSubject/{firstname}|
+|GET|Get teacher and subjects with given first name|http://localhost:8080/student-management-system/api/v1/teacher/getTeacherAndSubject/{firstname}|
 
 |Response Body Example||
 |---|---|
-|Example URL| http://localhost:8080/student-management-system/api/v1/student/getTeacherAndSubject/Bill|
+|Example URL| http://localhost:8080/student-management-system/api/v1/teacher/getTeacherAndSubject/Bill|
  
 ```ruby
 [
   "Java",
   "C"
+]
+ ```
+ |Method|Description|URL|
+|---|---|--|
+|GET|Get teacher and subjects with given first name|http://localhost:8080/student-management-system/api/v1/teacher/getStudentBySubjectAndTeacher/{subject}/{teacher}|
+
+|Response Body Example||
+|---|---|
+|Example URL| http://localhost:8080/student-management-system/api/v1/teacher/getStudentBySubjectAndTeacher/C/Bill|
+ 
+```ruby
+[
+  {
+    "email": "erick@google.com",
+    "firstname": "Erick",
+    "id": 6,
+    "lastname": "Gutierrez",
+    "phonenumber": "555-2673"
+  },
+  {
+    "email": "luis@google.com",
+    "firstname": "Luis",
+    "id": 3,
+    "lastname": "Gutierrez",
+    "phonenumber": "555-2343"
+  }
 ]
  ```
 
